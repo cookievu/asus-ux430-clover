@@ -53,12 +53,16 @@
 		</array>
 		<key>DSDT</key>
 		<dict>
+			<key>Debug</key>
+			<false/>
 			<key>Fixes</key>
 			<dict>
 				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FixHeaders</key>
-				<true/>
+				<key>AddDTGP</key>
+				<false/>
+				<key>FixHDA</key>
+				<false/>
 			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
@@ -251,6 +255,8 @@
 				<string>xh_rvp10</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -271,6 +277,8 @@
 		<array>
 			<string>SSDT.aml</string>
 			<string>SSDT-1.aml</string>
+			<string>SSDT-ACPIBATT.aml</string>
+			<string>SSDT-PNLF.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
@@ -278,7 +286,7 @@
 		<key>Arguments</key>
 		<string>dart=0 nv_disable=1 kext-dev-mode=1 -disablegfxfirmware</string>
 		<key>DefaultVolume</key>
-		<string>62FDA980-5EB2-01D3-C0D4-6E3159AFE900</string>
+		<string>AB4BD95E-7652-418C-960E-7AFCFEDECF13</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -347,6 +355,15 @@
 				</data>
 			</dict>
 		</array>
+		<key>Audio</key>
+		<dict>
+			<key>AFGLowPowerState</key>
+			<false/>
+			<key>Inject</key>
+			<string>3</string>
+			<key>ResetHDA</key>
+			<true/>
+		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>#Kaby Lake-Comment</key>
@@ -388,9 +405,8 @@
 		</dict>
 		<key>Hide</key>
 		<array>
-			<string>Recovery HD</string>
-			<string>Legacy HD4</string>
-			<string>Windows</string>
+			<string>Preboot</string>
+			<string>Recovery</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
@@ -404,7 +420,7 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<true/>
+			<false/>
 			<key>Linux</key>
 			<true/>
 			<key>Tool</key>
@@ -413,7 +429,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>mac</string>
+		<string>mlcamp</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -432,7 +448,7 @@
 			<false/>
 		</dict>
 		<key>ig-platform-id</key>
-		<string>0x19160000</string>
+		<string>0x191B0000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -470,6 +486,38 @@
 				ILniAAAAkJA=
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 debug kernel (credit Vandroiy)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				sABMi1Xw
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>
+				SIPEQF3D
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				igKEwHRE
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Replace</key>
+				<data>
+				igKEwOtE
+				</data>
+			</dict>
 		</array>
 		<key>KextsToPatch</key>
 		<array>
@@ -482,6 +530,8 @@
 				<data>
 				AABgAgAAUAE=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
@@ -499,28 +549,14 @@
 				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
 				AAAA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
 				AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA/wAAAAEAAAAg
 				AAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Patching 11d4198b with 14f11f72 codec (patched by AppleHDA Patcher.app)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ixnUEQ==
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				ch/xFA==
 				</data>
 			</dict>
 			<dict>
@@ -532,6 +568,8 @@
 				<data>
 				gflSqgAAdSk=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
@@ -548,6 +586,8 @@
 				<data>
 				SIX/dEdIiwc=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>IOBluetoothFamily</string>
 				<key>Replace</key>
@@ -564,6 +604,8 @@
 				<data>
 				RiV1VCUwNHgA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
@@ -580,11 +622,33 @@
 				<data>
 				RYTJD5XAD7bAweAMRAnYRA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>IONVMeFamily</string>
 				<key>Replace</key>
 				<data>
 				RYTJD5XAD7bAweAJRAnYRA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.13 beta (based on denskop patch)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQAAdSI=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.iokit.IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				AQAA6yI=
 				</data>
 			</dict>
 		</array>
