@@ -4,8 +4,6 @@
 <dict>
 	<key>ACPI</key>
 	<dict>
-		<key>#Comment-SortedOrder</key>
-		<string>SortedOrder required if you have patched SSDTs in ACPI/patched</string>
 		<key>#DropTables</key>
 		<array>
 			<dict>
@@ -59,9 +57,11 @@
 			<dict>
 				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FixHeaders_20000000</key>
+				<key>FixHeaders</key>
 				<true/>
 			</dict>
+			<key>Name</key>
+			<string>DSDT.aml</string>
 			<key>Patches</key>
 			<array>
 				<dict>
@@ -261,6 +261,8 @@
 				<false/>
 				<key>PStates</key>
 				<false/>
+				<key>PluginType</key>
+				<true/>
 			</dict>
 			<key>PluginType</key>
 			<integer>1</integer>
@@ -268,7 +270,7 @@
 		<key>SortedOrder</key>
 		<array>
 			<string>SSDT.aml</string>
-			<string>SSDT-PNLF.aml</string>
+			<string>SSDT-1.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
@@ -276,7 +278,7 @@
 		<key>Arguments</key>
 		<string>dart=0 nv_disable=1 kext-dev-mode=1 -disablegfxfirmware</string>
 		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
+		<string>62FDA980-5EB2-01D3-C0D4-6E3159AFE900</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -286,7 +288,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>1</integer>
+		<integer>2</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -345,11 +347,6 @@
 				</data>
 			</dict>
 		</array>
-		<key>Audio</key>
-		<dict>
-			<key>Inject</key>
-			<string>3</string>
-		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>#Kaby Lake-Comment</key>
@@ -392,6 +389,8 @@
 		<key>Hide</key>
 		<array>
 			<string>Recovery HD</string>
+			<string>Legacy HD4</string>
+			<string>Windows</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
@@ -414,7 +413,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>mlcamp</string>
+		<string>mac</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -572,6 +571,22 @@
 				RiV1VHh4eHgA
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>IONVMeFamily Pike R. Alpha Patch#17 (Sierra)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RYTJD5XAD7bAweAMRAnYRA==
+				</data>
+				<key>Name</key>
+				<string>IONVMeFamily</string>
+				<key>Replace</key>
+				<data>
+				RYTJD5XAD7bAweAJRAnYRA==
+				</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -596,7 +611,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C026525014NDM69A8</string>
+		<string>C027171004NDMT31H</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -626,9 +641,9 @@
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for KabyLake identifiers</string>
 		<key>SerialNumber</key>
-		<string>C02T11IOHV29</string>
+		<string>C02TN2ISHV29</string>
 		<key>SmUUID</key>
-		<string>FC97C16E-468B-4D39-B1AA-FCF2ED373E7C</string>
+		<string>C4FB2124-583D-4639-A0EB-960E1E4437A4</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
@@ -636,6 +651,8 @@
 	<dict>
 		<key>BacklightLevel</key>
 		<integer>0</integer>
+		<key>CustomUUID</key>
+		<string>C4FB2124-583D-4639-A0EB-960E1E4437A4</string>
 		<key>InjectKexts</key>
 		<string>Detect</string>
 	</dict>
