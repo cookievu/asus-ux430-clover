@@ -145,25 +145,11 @@
 					<true/>
 					<key>Find</key>
 					<data>
-					RUNEVg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUNfXw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
 					SERBUw==
 					</data>
 					<key>Replace</key>
 					<data>
-					SERFRg==
+					RUNfXw==
 					</data>
 				</dict>
 				<dict>
@@ -236,6 +222,20 @@
 					SUdQVQhfQURSDAAAAgA=
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change HDAS to HDEF</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					SERBUw==
+					</data>
+					<key>Replace</key>
+					<data>
+					SERFRg==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
@@ -279,6 +279,7 @@
 			<string>SSDT-1.aml</string>
 			<string>SSDT-ACPIBATT.aml</string>
 			<string>SSDT-PNLF.aml</string>
+			<string>SSDT-HDEF.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
@@ -286,7 +287,7 @@
 		<key>Arguments</key>
 		<string>dart=0 nv_disable=1 kext-dev-mode=1 -disablegfxfirmware</string>
 		<key>DefaultVolume</key>
-		<string>AB4BD95E-7652-418C-960E-7AFCFEDECF13</string>
+		<string>71AA2D03-1DF1-4706-B0F9-CC9B3B97B5A7</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -429,7 +430,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>mlcamp</string>
+		<string>mac</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
