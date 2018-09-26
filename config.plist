@@ -280,6 +280,9 @@
 			<string>SSDT-1.aml</string>
 			<string>SSDT-ACPIBATT.aml</string>
 			<string>SSDT-PNLF.aml</string>
+			<string>SSDT-ALS.aml</string>
+			<string>SSDT-FAN.aml</string>
+			<string>SSDT-ELAN.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
@@ -361,9 +364,9 @@
 			<key>AFGLowPowerState</key>
 			<false/>
 			<key>Inject</key>
-			<string>3</string>
+			<integer>3</integer>
 			<key>ResetHDA</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>FakeID</key>
 		<dict>
